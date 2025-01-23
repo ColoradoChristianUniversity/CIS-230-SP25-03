@@ -48,7 +48,9 @@ Console.WriteLine($"\nYou pressed: {key}");
 
 1. **Clone Your Repository**
 
-   GitHub Classroom: https://classroom.github.com/a/xLLZSm4E
+   - GitHub Classroom: https://classroom.github.com/a/xLLZSm4E
+   - Open the new, local folder
+   
 
 1. **Configure Debugging**
 
@@ -56,6 +58,21 @@ Console.WriteLine($"\nYou pressed: {key}");
    - Set its value to `externalTerminal`.
 
 1. **Create Solution Structure**
+
+```text
+Assignment02.sln
+├── .gitignore
+├── .editorconfig
+├── Client
+│   ├── Client.csproj
+│   ├── Program.cs 
+│   └── References: Client.Library
+└── Client.Library
+    ├── Client.Library.csproj
+    └── Class1.cs (Rename to Logic.cs)
+```
+
+This is the command line, try doing it inside VS Code using the user interface. The result is the same, using the UI inside Code just helps you learn how it works. You can always "fall back" to this command line syntax.
 
 ```bash
 // create base files
@@ -68,9 +85,9 @@ dotnet new classlib -n Client.Library -o Client.Library
 dotnet add Client/Client.csproj reference Client.Library/Client.Library.csproj
 
 // create the solution
-dotnet new sln -n Client
-dotnet sln Client.sln add Client/Client.csproj
-dotnet sln Client.sln add Client.Library/Client.Library.csproj
+dotnet new sln -n Assignment02
+dotnet sln Assignment02.sln add Client/Client.csproj
+dotnet sln Assignment02.sln add Client.Library/Client.Library.csproj
 
 // test the app
 dotnet restore
