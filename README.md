@@ -2,34 +2,55 @@
 
 ![](Screenshot.gif)
 
-## Universal Acceptance Criteria
+## Universal Acceptance Criteria  
 
 This represents acceptance criteria that is true irrespective of assignment criteria.
 
-1. You **must understand** every single line of your solution.
-2. Your code **must compile and run** without errors.
-3. You **must turn in your repository URL** in Brightspace.
+- You **must understand** every single line of your solution.
+- Your code **must compile and run** without errors.
+- You **must turn in your repository URL** in Brightspace.
 
-## Assignment Acceptance Criteria
+## Assignment Acceptance Criteria  
 
 This represents acceptance criteria necessary for assignment completion.
 
-1. Show a standard QWERTY keyboard.
-1. Listen for a keypress and respond.
-1. Highlight the key pressed.
-1. Unhighlight any previous key presses.
-1. Handle both upper & lower case keys.
-1. Handle numbers as well as letters.
-1. Handle the space bar (see the screenshot).
-1. Place as much logic as possible in `Client.Library`.
-1. Hide the cursor in the console app.
+### 1️⃣ Menu Display & Navigation  
+- Retrieve a **list of menu items** using `Api.GetStringArrayAsync()`.  
+- Display the **menu items** in the console.  
+- Allow **navigation** using:
+  - **Up Arrow** to move selection up.
+  - **Down Arrow** to move selection down.  
+  - **Enter** to confirm selection.  
 
-## Bonus Acceptance Criteria
+### 2️⃣ Menu Interaction & Selection  
+- **Highlight the selected menu item** and unhighlight previous selections.  
+- When an item is selected:
+  - **Clear the console**.  
+  - Display the selected item inside a **boxed UI** using `Screen.SurroundWithBox()`.  
+  - Show a **"Press any key to continue"** message.  
+  - Wait for a key press before returning to the menu.  
 
-This represents optional acceptance criteria available for additional learning and bonus. You must complete both.
+### 3️⃣ Program Behavior & Structure  
+- Return to the **main menu** after a selection is made.  
+- **Exit gracefully** when needed (optional Escape key handling).  
+- Place as much logic as possible in `Client.Library`.  
+- Ensure the **console cursor is hidden** for a cleaner UI.  
 
-1. Every time a key is pressed play a short console beep. 
-1. When I type the key series "password" clear the screen and write "SECRET". *This one task is pretty complex and will be difficult for you to complete. Clearing the screen and writing SECRET after password will require clever logic you might need AI or a friend to help you complete. Fine. Just remember, you need to understand your code. Don't submit a solution you don't understand.*
+## Bonus Acceptance Criteria  
+
+This represents optional acceptance criteria available for additional learning and bonus.
+
+- **Improve the menu experience**:  
+  - Implement a **smooth scrolling effect** when navigating.  
+  - Play a **console beep** when pressing Up, Down, or Enter.  
+- **Enhance exit behavior**:  
+  - Allow **Escape key to exit gracefully**, displaying a **"Goodbye"** message before closing.  
+- **Add a secret feature**:  
+  - If the user types `"hidden"`, display a **"Secret Menu Unlocked!"** message.  
+
+---
+
+This version keeps the **core structure intact**, while grouping the acceptance criteria into logical sections for clarity. Let me know if you'd like further refinements! 🚀
 
 ### Useful information
 
