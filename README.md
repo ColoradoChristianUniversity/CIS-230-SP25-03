@@ -1,78 +1,46 @@
 # Assignment 03
 
+A simple, interactive menu from an internet source.
+
 ![](Screenshot.gif)
 
 ## Universal Acceptance Criteria  
 
 This represents acceptance criteria that is true irrespective of assignment criteria.
 
-- You **must understand** every single line of your solution.
-- Your code **must compile and run** without errors.
-- You **must turn in your repository URL** in Brightspace.
+(_This does not change from week to week_)
 
-## Assignment Acceptance Criteria  
+1. You **must understand** every single line of your solution.
+2. Your code **must compile and run** without errors.
+3. You **must turn in your repository URL** in Brightspace.
+
+## Assignment 
 
 This represents acceptance criteria necessary for assignment completion.
 
-### 1️⃣ Menu Display & Navigation  
-- Retrieve a **list of menu items** using `Api.GetStringArrayAsync()`.  
-- Display the **menu items** in the console.  
-- Allow **navigation** using:
-  - **Up Arrow** to move selection up.
-  - **Down Arrow** to move selection down.  
-  - **Enter** to confirm selection.  
+> **Regarding the API.** This is the URL to retrieve internet information: https://cis-230-sp25.azurewebsites.net/api/stringarray This has already been integrated in the `Client.Library` for you (by me) but I encourage you to look at the code as this is our first time to use internet information and our first time to deserialize information. Getting information from the internet is an incredibly common step in most applications; hopefully, this will reinforce how most complex tasks have been makde quite simple. In future assignments, you'll write this code yourself.
 
-### 2️⃣ Menu Interaction & Selection  
-- **Highlight the selected menu item** and unhighlight previous selections.  
-- When an item is selected:
-  - **Clear the console**.  
-  - Display the selected item inside a **boxed UI** using `Screen.SurroundWithBox()`.  
-  - Show a **"Press any key to continue"** message.  
-  - Wait for a key press before returning to the menu.  
-
-### 3️⃣ Program Behavior & Structure  
-- Return to the **main menu** after a selection is made.  
-- **Exit gracefully** when needed (optional Escape key handling).  
-- Place as much logic as possible in `Client.Library`.  
-- Ensure the **console cursor is hidden** for a cleaner UI.  
+1. Ensure the project structure detailed below this list. 
+2. Ensure the application never exist, "Press any key to continue..." restarts.
+3. Show `Api.GetStringArrayAsync()` results as a numbered list/menu.
+4. Listen for and support `Up` and `Down` keys to change highlight.
+5. Listen for an support `Enter` to select and display the chosen item (with a border).
+6. Use `Screen.Print()` and `Screen.SurroundWithBorder()` I provided in `Client.Library`.
 
 ## Bonus Acceptance Criteria  
 
 This represents optional acceptance criteria available for additional learning and bonus.
 
-- **Improve the menu experience**:  
-  - Implement a **smooth scrolling effect** when navigating.  
-  - Play a **console beep** when pressing Up, Down, or Enter.  
-- **Enhance exit behavior**:  
-  - Allow **Escape key to exit gracefully**, displaying a **"Goodbye"** message before closing.  
-- **Add a secret feature**:  
-  - If the user types `"hidden"`, display a **"Secret Menu Unlocked!"** message.  
+1. Add "Loading..." when fetching from the API sournce. 
+2. Handle `Escape` key to exit the list and fetch a new one. 
+3. Support menu wrapping - pressing `Down` on the last menu item highlights the first.
+4. Support menu wrapping - pressing `Up` on the first menu item highlights the last.
 
----
+# Setup
 
-This version keeps the **core structure intact**, while grouping the acceptance criteria into logical sections for clarity. Let me know if you'd like further refinements! 🚀
-
-### Useful information
-
-`Console.ReadKey().Key` lets you read and identify key presses in a C# console application. The `Console.ReadKey()` method waits for the user to press a key and gives back a `ConsoleKeyInfo` object. That object includes details like what key was pressed and whether Shift, Alt, or Ctrl was used. The `.Key` property specifically tells you which key was pressed, using the `ConsoleKey` enum, with values like `Enter`, `Escape`, or `A`. It’s a simple and effective way to handle user input.
-
-```csharp
-Console.WriteLine("Press any key:");
-// Reads the keypress as keyInfo metadata
-ConsoleKeyInfo keyInfo = Console.ReadKey(); 
-// Extracts the key itself from keyInfo metadata
-ConsoleKey key = keyInfo.Key; 
-Console.WriteLine($"\nYou pressed: {key}");
-```
-
-## Getting Started
+> **Existing code** You will notice that the repository already comes with the `Client.Library` project. Because of this, you do not need to create it. However, you will need to add a project reference to it from the `Client` project you create.
 
 1. **Clone Your Repository**
-
-   - GitHub Classroom: https://classroom.github.com/a/xLLZSm4E
-   - Open the new, local folder
-   
-
 1. **Configure Debugging**
 
    - Open Settings (`Ctrl+,`) and search for `csharp.debug.console`.
@@ -80,8 +48,10 @@ Console.WriteLine($"\nYou pressed: {key}");
 
 1. **Create Solution Structure**
 
+It's up to you if you use the `dotnet` commands in the terminal of if you create the solution in the VS Code UI. Note that `gitignore` and `editorconfig` files can only be created using the `dotnet` commands in the terminal - there is, currently, no UI equivelent. 
+
 ```text
-Assignment02.sln
+Assignment03.sln
 ├── .gitignore
 ├── .editorconfig
 ├── Client
@@ -90,33 +60,9 @@ Assignment02.sln
 │   └── References: Client.Library
 └── Client.Library
     ├── Client.Library.csproj
-    └── Class1.cs (Rename to Logic.cs)
+    ├── Screen.cs (I provided this; it holds console methods like: Print(), SurroundWithBorder(), and Listen())
+    └── Api.cs (I provided this; async methods like: GetStringArrayAsync())
 ```
-
-This is the command line, try doing it inside VS Code using the user interface. The result is the same, using the UI inside Code just helps you learn how it works. You can always "fall back" to this command line syntax.
-
-```bash
-// create base files
-dotnet new gitignore
-dotnet new editorconfig
-
-// create the projects
-dotnet new console -n Client -o Client
-dotnet new classlib -n Client.Library -o Client.Library
-dotnet add Client/Client.csproj reference Client.Library/Client.Library.csproj
-
-// create the solution
-dotnet new sln -n Assignment02
-dotnet sln Assignment02.sln add Client/Client.csproj
-dotnet sln Assignment02.sln add Client.Library/Client.Library.csproj
-
-// test the app
-dotnet restore
-dotnet build
-dotnet run --project Client
-```
-
-> Unlike the last assignment, do not use the command palette to create debug assets. Running this command creates the `launch.json` and `tasks.json` files in the `.vscode` folder. This is very valuable for sophisticated scenarios, but not ours—this is simple. 
 
 ### Now you can do your assignment
 
