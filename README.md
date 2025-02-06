@@ -56,7 +56,7 @@ Assignment03.sln
 ├── .editorconfig
 ├── Client
 │   ├── Client.csproj
-│   ├── Program.cs 
+│   ├── Program.cs (This week, all of your code will be written here.)
 │   └── References: Client.Library
 └── Client.Library
     ├── Client.Library.csproj
