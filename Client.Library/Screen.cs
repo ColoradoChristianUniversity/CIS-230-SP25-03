@@ -35,7 +35,7 @@ public static class Screen
 
     public enum BorderStyle { @double, @single }
 
-    public static void SurroundWithBox(Point topLeft, Size size, BorderStyle style = BorderStyle.@double)
+    public static void SurroundWithBorder(Point topLeft, Size size, BorderStyle style = BorderStyle.@double)
     {
         ArgumentOutOfRangeException.ThrowIfLessThan(topLeft.X, 0, nameof(topLeft.X));
         ArgumentOutOfRangeException.ThrowIfLessThan(topLeft.Y, 0, nameof(topLeft.Y));
